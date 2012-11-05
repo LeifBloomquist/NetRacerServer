@@ -1,0 +1,20 @@
+Here's the source for my NetRacer game server, written in Java SE 5.   It's very simple, just a few classes.  Should be very easy to follow.
+
+Thanks to Ian Colquhoun for his help by running the server on his machine for a couple of years. 
+
+Check out my NetRacerClient repository for all the good stuff! 
+http://github.com/LeifBloomquist/NetRacerClient
+
+
+Server Issues:
+
+-The code could probably be optimized in a few places, i.e. use a hashtable for matching IPs with players, reuse the same DatagramPacket object instead of creating a new one on each loop, and so on.
+
+-I think TRACK_LENGTH_PIXELS is wrong, because I've observed the cars 'jumping' several pixels ahead when at the finish line. 
+
+-The logic for removing timed-out players is extremely clunky, the break is a hack to avoid exceptions when removing elements from the vector.  Further dropouts will be handled on the next loop, which works but not ideal.    
+
+-Purists would (correctly) point out that there's too much networking code in the RaceCar class.
+
+
+All that said, the code was very stable and the program ran without issue on Ian's machine for a number of years.  
